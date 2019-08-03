@@ -89,6 +89,7 @@ pkgList <- c("devtools",
              "RODBC", 
              "EML",
              "EMLassemblyline",
+             "IMDReportTemplate",
              "dplyr")
 inst <- pkgList %in% installed.packages()
 if (length(pkgList[!inst]) > 0) {
