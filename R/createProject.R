@@ -12,49 +12,68 @@
 
 createProject <-function(projectName){
 
-# Create Directory Structure
+  # Create Directory Structure
 
-if (!file.exists("data")){
-  dir.create(file.path("data"))
-}
+  if (!file.exists("data")){
+    dir.create(file.path("data"))
+  }
 
-if (!file.exists("data/raw")){
-  dir.create(file.path("data/raw"))
-}
+  if (!file.exists("data/raw")){
+    dir.create(file.path("data/raw"))
+  }
 
-if (!file.exists("data/temp")){
-  dir.create(file.path("data/temp"))
-}
+  if (!file.exists("data/temp")){
+    dir.create(file.path("data/temp"))
+  }
 
-if (!file.exists("data/processed")){
-  dir.create(file.path("data/processed"))
-}
+  if (!file.exists("data/processed")){
+    dir.create(file.path("data/processed"))
+  }
 
-if (!file.exists("common")){
-  dir.create(file.path("common"))
-}
+  if (!file.exists("common")){
+    dir.create(file.path("common"))
+  }
 
-if (!file.exists("dataPackages")){
-  dir.create(file.path("dataPackages"))
-}
+  if (!file.exists("dataPackages")){
+    dir.create(file.path("dataPackages"))
+  }
 
-if (!file.exists("dataPackages/CoreTemplates")){
-  dir.create(file.path("dataPackages/CoreTemplates"))
-}
+  if (!file.exists("output")){
+    dir.create(file.path("output"))
+  }
 
-if (!file.exists("output")){
-  dir.create(file.path("output"))
-}
+  if (!file.exists("figures")){
+    dir.create(file.path("figures"))
+  }
 
-if (!file.exists("figures")){
-  dir.create(file.path("figures"))
-}
+  if (!file.exists("metadata")){
+    dir.create(file.path("metadata"))
+  }
 
-if (!file.exists("metadata")){
-  dir.create(file.path("metadata"))
-}
+  # Copy template files from IMDReortTemplate package into new project directories
+  templateDir<-paste0(.libPaths()[1],"/IMDReportTemplate/templates/",sep="")
+  rmdTemplate<-paste0(templateDir,"Report_Template.Rmd")
+  rmdTemplateDestination<-paste0("Report_",projectName,".rmd",sep="")
 
-# Copy template files from IMDReortTemplate package into new project directories
+  ifelse (!file.exists(rmdTemplateDestination),
+          file.copy(rmdTemplate,paste0("Report_",projectName,".rmd",sep="")),
+          file.copy(rmdTemplate,paste0("New_Report_",projectName,".rmd",sep=""))
+  )
 
+  file.copy(paste0(templateDir,"NRDS_Author_Template_V3.2.docx",sep=""),
+           "common/NRDS_Author_Template_V3.2.docx"
+           )
+
+  file.copy(paste0(templateDir,"ProjectMetadata.csv",sep=""),
+            "metadata/ProjectMetadata.csv"
+  )
+
+  file.copy(paste0(templateDir,"ReportNumbers.csv",sep=""),
+            "metadata/ReportNumbers.csv"
+  )
+
+  file.copy(paste0(templateDir,"/NRDS_Author_Template_V3.2.docx",sep=""),
+            "common/NRDS_Author_Template_V3.2.docx"
+  )
 
 }
