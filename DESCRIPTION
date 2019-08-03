@@ -1,11 +1,18 @@
 Package: IMDReportTemplate
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Collection of Functions to initialize an R project for a reproducible report
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author: Joe DeVivo
+Maintainer: Joe DeVivo <joe_devivo@nps.gov>
+Description: This package sets up the directory structure and template files for starting a new
+    report in R. It includes a template RMD file for the main analysis/report as well as
+    template files to be used when creating output data packates. 
+License: CC)
 Encoding: UTF-8
 LazyData: true
+Imports: 
+RoxygenNote: 6.1.1
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr

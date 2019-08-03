@@ -1,0 +1,5 @@
+Product,Parameter,ReferenceID
+Data Publication Report,DataPublicationReportRefID,2263595
+All Daily Flows Data Package,FlowRefID,2263556
+Processed Daily Flows Data Package,CleanFlowRefID,2263592
+Periods of Record for Analysis,AnalysisPORsRefID,2263593

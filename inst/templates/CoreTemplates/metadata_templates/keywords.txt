@@ -1,0 +1,7 @@
+keyword	keywordThesaurus
+Water - Hydrology - Surface Water Dynamics	Ecological Monitoring Framework
+hydrology	theme
+stream flows	theme
+envrionment	theme
+U.S.national parks	place
+inlandWaters	place
