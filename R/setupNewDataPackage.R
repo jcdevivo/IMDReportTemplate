@@ -36,14 +36,15 @@ setupNewDataPackage <-function(packageName){
 
   # update template files with IMD specific versions
 
-  metadata_templates<-list.files(paste0(templateDir,"CoreTemplates/metadata_templates"))
-  metadata_templatesSource<-paste0(templateDir,"CoreTemplates/metadata_templates/", metadata_templates)
+  templateDir<-system.file("templates/",package="IMDReportTemplate")
+  metadata_templates<-list.files(paste0(templateDir,"/CoreTemplates/metadata_templates"))
+  metadata_templatesSource<-paste0(templateDir,"/CoreTemplates/metadata_templates/", metadata_templates)
   metadata_templatesDest<-paste0("dataPackages/",packageName,"/metadata_templates/")
 
 
   file.copy(metadata_templatesSource,metadata_templatesDest,overwrite = TRUE)
 
-  file.copy(paste0(templateDir,"CoreTemplates/run_EMLassemblyline_Templates.R"),
+  file.copy(paste0(templateDir,"/CoreTemplates/run_EMLassemblyline_Templates.R"),
             paste0("dataPackages/", packageName,"/run_EMLassemblyline_for_",packageName,".R"),overwrite = TRUE)
 
 }
